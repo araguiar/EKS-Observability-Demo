@@ -105,7 +105,7 @@ module "eks_monitoring" {
     scrape_sample_limit = 10000
   }
 
-  depends_on = [ module.managed_grafana ]
+  depends_on = [module.managed_grafana]
 }
 
 resource "aws_sns_topic" "prometheus_alerts_topic" {

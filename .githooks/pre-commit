@@ -18,8 +18,3 @@ done
 
 terraform-docs --lockfile=false .
 echo "Done."
-
-echo "Adding updated files to commit.."
-echo 'git add **/README.md'
-git add **/README.md
-echo "Done."

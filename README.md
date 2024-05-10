@@ -38,19 +38,19 @@ Deploy EKS Observability resources.
 |------|-------------|------|---------|:--------:|
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | EKS cluster name the workspace is deployed for. | `string` | n/a | yes |
 | <a name="input_grafana_private_subnet_ids"></a> [grafana\_private\_subnet\_ids](#input\_grafana\_private\_subnet\_ids) | List of VPC subnets used for the cluster subnet group | `list(string)` | n/a | yes |
-| <a name="input_grafana_security_group_ids"></a> [grafana\_security\_group\_ids](#input\_grafana\_security\_group\_ids) | Cluster VPC Security groups for Grafana access | `list(string)` | n/a | yes |
 | <a name="input_grafana_workspace_name"></a> [grafana\_workspace\_name](#input\_grafana\_workspace\_name) | Grafana workspace name. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | AWS Region being deployed to. | `string` | n/a | yes |
 | <a name="input_adot_loglevel"></a> [adot\_loglevel](#input\_adot\_loglevel) | Verbosity level for ADOT Collector | `string` | `"normal"` | no |
 | <a name="input_alert_email_addresses"></a> [alert\_email\_addresses](#input\_alert\_email\_addresses) | Email addressses for Observability alerts | `list(string)` | `[]` | no |
 | <a name="input_enable_dashboards"></a> [enable\_dashboards](#input\_enable\_dashboards) | Enables or disables curated dashboards. Dashboards are managed by the Grafana Operator | `bool` | `true` | no |
-| <a name="input_global_tags"></a> [global\_tags](#input\_global\_tags) | Map of key,value pairs to tag all resources. | `map(string)` | `{}` | no |
+| <a name="input_global_tags"></a> [global\_tags](#input\_global\_tags) | Map of key,value pairs to tag all resources. | `map(string)` | <pre>{<br>  "creation-method": "terraform",<br>  "project": "eks-observability-demo"<br>}</pre> | no |
 | <a name="input_grafana_admin_groups"></a> [grafana\_admin\_groups](#input\_grafana\_admin\_groups) | List of AWS SSO groups to assign as administrators in Amazon Managed Grafana.. | `list(string)` | `[]` | no |
 | <a name="input_grafana_editor_groups"></a> [grafana\_editor\_groups](#input\_grafana\_editor\_groups) | List of AWS SSO groups to assign as editor in Amazon Managed Grafana. | `list(string)` | `[]` | no |
 | <a name="input_grafana_enable_alerts"></a> [grafana\_enable\_alerts](#input\_grafana\_enable\_alerts) | Determines whether IAM permissions for alerting are enabled for the workspace IAM role | `bool` | `true` | no |
 | <a name="input_grafana_readonly_groups"></a> [grafana\_readonly\_groups](#input\_grafana\_readonly\_groups) | List of AWS SSO groups to assign as readonly users in Amazon Managed Grafana. | `list(string)` | `[]` | no |
+| <a name="input_grafana_security_group_ids"></a> [grafana\_security\_group\_ids](#input\_grafana\_security\_group\_ids) | Cluster VPC Security groups for Grafana access | `list(string)` | `[]` | no |
 | <a name="input_grafana_version"></a> [grafana\_version](#input\_grafana\_version) | Grafana version to deploy. | `string` | `"9.4"` | no |
-| <a name="input_irsa_iam_role_path"></a> [irsa\_iam\_role\_path](#input\_irsa\_iam\_role\_path) | IAM Role path for IRSA | `string` | `"/obs/"` | no |
+| <a name="input_irsa_iam_role_path"></a> [irsa\_iam\_role\_path](#input\_irsa\_iam\_role\_path) | IAM Role path for IRSA | `string` | `"/"` | no |
 
 ## Outputs
 

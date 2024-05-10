@@ -24,6 +24,7 @@ variable "grafana_private_subnet_ids" {
 variable "grafana_security_group_ids" {
   description = "Cluster VPC Security groups for Grafana access"
   type        = list(string)
+  default     = []
 }
 
 variable "grafana_version" {
@@ -73,7 +74,7 @@ variable "enable_dashboards" {
 variable "irsa_iam_role_path" {
   description = "IAM Role path for IRSA"
   type        = string
-  default     = "/obs/"
+  default     = "/"
 }
 
 variable "alert_email_addresses" {
@@ -85,5 +86,8 @@ variable "alert_email_addresses" {
 variable "global_tags" {
   description = "Map of key,value pairs to tag all resources."
   type        = map(string)
-  default     = {}
+  default = {
+    creation-method = "terraform"
+    project         = "eks-observability-demo"
+  }
 }
