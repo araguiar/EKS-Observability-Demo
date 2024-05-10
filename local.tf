@@ -2,10 +2,6 @@ locals {
   eks_cluster_id                    = data.aws_eks_cluster.this.id
   eks_cluster_name                  = data.aws_eks_cluster.this.name
   eks_cluster_endpoint              = data.aws_eks_cluster.this.endpoint
-  managed_grafana_workspace_id      = data.aws_ssm_parameter.grafana_workspace_id.value
-  grafana_workspace_api_keys        = jsondecode(data.aws_ssm_parameter.grafana_workspace_cluster_api_key.value)
-  grafana_workspace_cluster_api_key = local.grafana_workspace_api_keys["GF_SECURITY_ADMIN_APIKEY"]
-
 
   ##For external secrets sync
   external_secrets_sa_name = "external-secrets-sa"

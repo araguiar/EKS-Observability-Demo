@@ -1,8 +1,3 @@
-variable "grafana_workspace_name" {
-  description = "Grafana workspace name."
-  type        = string
-}
-
 variable "cluster_name" {
   description = "EKS cluster name the workspace is deployed for."
   type        = string
@@ -13,32 +8,22 @@ variable "region" {
   type        = string
 }
 
-variable "private_subnet_ids" {
+##
+# Grafana
+##
+variable "grafana_workspace_name" {
+  description = "Grafana workspace name."
+  type        = string
+}
+
+variable "grafana_private_subnet_ids" {
   description = "List of VPC subnets used for the cluster subnet group"
   type        = list(string)
 }
 
-variable "security_group_ids" {
+variable "grafana_security_group_ids" {
   description = "Cluster VPC Security groups for Grafana access"
   type        = list(string)
-}
-
-# variable "vpce_ids" {
-#   description = "VPC Endpoint IDs for private Grafana access"    ##Commenting to enable temp public access
-#   type        = list(string)
-#   default     = [""]
-# }
-
-# variable "prefix_list_ids" {
-#   description = "Prefix list IDs for private Grafana access"     ##Commenting to enable temp public access
-#   type        = list(string)
-#   default     = [""]
-# }
-
-variable "terraform_execution_role" {
-  description = "Role ARN to assume for Terraform execution."
-  type        = string
-  default     = null
 }
 
 variable "grafana_version" {
@@ -47,7 +32,7 @@ variable "grafana_version" {
   default     = "9.4"
 }
 
-variable "enable_alerts" {
+variable "grafana_enable_alerts" {
   description = "Determines whether IAM permissions for alerting are enabled for the workspace IAM role"
   type        = bool
   default     = true
@@ -66,6 +51,33 @@ variable "grafana_editor_groups" {
 
 variable "grafana_readonly_groups" {
   description = "List of AWS SSO groups to assign as readonly users in Amazon Managed Grafana."
+  type        = list(string)
+  default     = []
+}
+
+##
+# Observability Accelerator
+##
+variable "adot_loglevel" {
+  description = "Verbosity level for ADOT Collector"
+  type        = string
+  default     = "normal"
+}
+
+variable "enable_dashboards" {
+  description = "Enables or disables curated dashboards. Dashboards are managed by the Grafana Operator"
+  type        = bool
+  default     = true
+}
+
+variable "irsa_iam_role_path" {
+  description = "IAM Role path for IRSA"
+  type        = string
+  default     = "/obs/"
+}
+
+variable "alert_email_addresses" {
+  description = "Email addressses for Observability alerts"
   type        = list(string)
   default     = []
 }
