@@ -1,9 +1,9 @@
 #!/bin/sh
 
-# echo "Formatting Terraform files..."
-# formatted=$(terraform fmt -recursive)
-# echo $formatted | tr ' ' '\n'
-# echo "Done."
+echo "Formatting Terraform files..."
+formatted=$(terraform fmt -recursive)
+echo $formatted | tr ' ' '\n'
+echo "Done."
 
 echo "Generating Terraform Docs..."
 # Run terraform-docs for every submodule
